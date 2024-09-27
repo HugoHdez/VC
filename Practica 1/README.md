@@ -10,6 +10,12 @@ Estas tareas han sido realizadas de manera conjunta por ambos miembros del grupo
 
 **TAREA 4:** Modificamos los colores de la codificación RGB, invirtiendo el color Red, y aumentando y disminuyendo el brillo del canal Green y Blue con la función clip de NumPy, que fuerza que los valores estén entre 0 y 255 (por si la suma o resta hace disminuir estos valores).
 
+![image](https://github.com/user-attachments/assets/531e7aee-3899-4795-8d1e-cc7a5c0ed33c)
+
 **TAREA 5:** Con la función minMaxLoc de OpenCV, encontramos los valores máximos y mínimos de color y su localización por frame, ayudándonos de la función circle de OpenCV para rodear de ROJO el tono más claro y de AMARILLO el tono más oscuro.
 
+![imagen2](https://github.com/user-attachments/assets/3eda5634-87f5-4fd4-8b40-7327fa1e9cec)
+
 **TAREA 6:** Aplicamos una serie de filtros con diferentes colores de estilo PopArt como referencia, ayudándonos de la función where de NumPy para aplicar este filtro en los canales de color, haciendo que, si un canal supera o no un umbral, se convierta o no al valor del canal RGB de este color.
+
+![imagen3](https://github.com/user-attachments/assets/dbb7e663-35cb-46b6-bba5-789c8cbaeea8)
