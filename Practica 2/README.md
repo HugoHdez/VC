@@ -23,6 +23,9 @@ Estas tareas han sido realizadas de manera conjunta por ambos miembros del grupo
 - Uso número 4: Cartoon
     Convertiremos la imagen en una imagen tipo Cartoon o dibujo animado. Para ello, primero aplicaremos un desenfoque a los frames en gris con la función medianBlur(). Luego, para añadir en la imagen bordes, tal y como son estos dibujos, con la función adaptiveThreshold(), detectaremos bordes haciendo uso de la umbralización adaptativa, ayudándonos también de ADAPTIVE_THRESH_MEAN_C Y THRESH_BINARY dentro de la misma función. Para finalizar, aplicaremosd filtrado bilateral de colores a los frames originales para suavizar los colores con la función bilateralFilter(). Combinaremos la imagen de la detección de bordes con la imagen suavizada haciendo uso de la función bitwise_and() y tendremos el output de la imagen Cartoon.
 
+![t3](https://github.com/user-attachments/assets/b554d1c9-7d48-4572-b567-c65a82525605)
+
+
 **TAREA 4:** La última tarea que realizaremos consiste en la detección de caras y su respectivo pixelado en tiempo real, a través de la página web.
 
 Primero cargamos un clasificador en cascada preentrenado que se utiliza para la detección de rostros en imágenes o videos. Después, creamos una funcion para píxelar a la cual se le pasa por parámetro la imagen a pixelar y número de bloques del pixelado y devuelve la imagen pixelada.
