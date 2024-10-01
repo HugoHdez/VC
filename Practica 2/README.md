@@ -1,0 +1,1 @@
+Práctica 2 - Funciones básicas de OpenCV
