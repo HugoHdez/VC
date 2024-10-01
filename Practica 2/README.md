@@ -26,6 +26,14 @@ Estas tareas han sido realizadas de manera conjunta por ambos miembros del grupo
 ![t3](https://github.com/user-attachments/assets/b554d1c9-7d48-4572-b567-c65a82525605)
 
 
-**TAREA 4:** La última tarea que realizaremos consiste en la detección de caras y su respectivo pixelado en tiempo real, a través de la página web.
+**TAREA 4:** La última tarea que realizaremos consiste en la detección de caras y su respectivo pixelado en tiempo real y también su umbralizado (2 tareas distintas).
 
-Primero cargamos un clasificador en cascada preentrenado que se utiliza para la detección de rostros en imágenes o videos. Después, creamos una funcion para píxelar a la cual se le pasa por parámetro la imagen a pixelar y número de bloques del pixelado y devuelve la imagen pixelada.
+- Pixelado: Primero cargamos un clasificador en cascada preentrenado que se utiliza para la detección de rostros en imágenes o videos. Después, creamos una funcion para píxelar la cara a la cual se le pasa por parámetro la imagen a pixelar y número de bloques del pixelado y devuelve la imagen pixelada dividiendo la imagen en bloques que agrupan píxeles calculando la media de su color. Luego, para reemplazar la cara pixelada en la imagen a tiempo real, usamos la función "detectMultiScale" de OpenCV, que se ayuda del objeto anterior face_cascade del clasificador de caras para hacer la detección. Así, recorremos el bloque de la cara detectada y aplicamos el pixelado con la función creada anteriormente y reemplazamos la zona de interés (face_roi, que se corresponde con la cara sin pixelar) por la cara pixelada.
+
+![pixelado](https://github.com/user-attachments/assets/449266cc-03cc-483b-960a-d046f83c0614)
+
+- Umbralizado: Seguimos la misma técnica para la detección de cara (detectMultiScale) y, al recorrer la zona de interés, en vez de sustituir la misma por la cara pixelada, aplicamos la función "threshold_face" para umbralizarla. En esta función, convertimos a escala de grises la imagen y aplicamos la función de umbralizado "threshold" con umbralizado "THRESH_OTSU" que determina automáticamente el umbral de una imagen. Para finalizar, convertimos la imagen de escala de grises a BGR.
+
+![t4_umbral](https://github.com/user-attachments/assets/ce3f6631-c8c6-4b25-acbe-ff7a67857908)
+
+  
