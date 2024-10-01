@@ -1,5 +1,5 @@
-Estas tareas han sido realizadas de manera conjunta por ambos miembros del grupo 23 (David Marrero Sosa y Hugo Hernández Morales).
-**autores** [David Marrero](https://github.com/deivinot)
+Estas tareas han sido realizadas de manera conjunta por ambos miembros del grupo 23 ([David Marrero Sosa](https://github.com/deivinot) y [Hugo Hernández Morales](https://github.com/HugoHdez)).
+
 
 ## Práctica 2. Funciones básicas de OpenCV
 
