@@ -1,51 +1,41 @@
-## Práctica 3. Detección y reconocimiento de formas
-
-### Contenidos
-
-[Aspectos cubiertos](#31-aspectos-cubiertos)  
-[Entrega](#32-entrega)
-
-### 3.1. Aspectos cubiertos
-
-En esta práctica el objetivo es adquirir nociones para extraer información geométrica de objetos presentes en una imagen, con el fin de caracterizarlos y posteriormente ser capaz de identificarlos de forma automática en categorías. El cuaderno de la práctica, *VC_P3.ipynb*, contiene diversos ejemplos que permiten la detección de objetos presentes en la imagen, como paso previo a su caracterización geométrica. En este sentido, se plantea el uso del umbralizado y la detección de contornos. Para el caso concreto de monedas, se considera también la utilización de la transformada de Hough para la localización de formas circulares.
-
-Si bien no es necesario instalar paquetes adicionales para las primeras celdas del cuaderno, de cara a poder obtener la matriz de confusión, es requisito instalar en el *environment* el paquete *scikit-learn*. Con *pip* sería algo como:
-
-```
-pip install scikit-learn
-```
+Estas tareas han sido realizadas de manera conjunta por ambos miembros del grupo 23 ([David Marrero Sosa](https://github.com/deivinot) y [Hugo Hernández Morales](https://github.com/HugoHdez)).
 
 
-### 3.2. Entrega
+# Práctica 3. Detección y reconocimiento de formas.
 
-Para la entrega de esta  práctica, son dos las tareas planteadas. En la primera tarea, se asume que todos los objetos de interés en la imagen son circulares, en concreto monedas de la UE. Tras mostrar diversas aproximaciones para obtener sus contornos, el reto o tarea consiste en determinar la cantidad de dinero y monedas presentes en la imagen.  
+## **Tarea 2:** Desarrollo de clasificador basado en heurísticas geométricas y de apariencia de diferentes tipos de partículas.
 
-Para la segunda tarea, se proporcionan tres imágenes de tres clases de objetos recogidos en playas canarias: fragmentos plásticos, *pellets* y alquitrán. Las dos primeras categorías se consideran microplásticos cuando miden menos de 5mm, mientras que la tercera es muy habitual encontrarlas en playas canarias. Observar que dado que cada imagen contiene muestras de una única categoría, disponen de un conjunto de datos anotado. La tarea propuesta consiste en tomar como muestras de partida las imágenes proporcionadas, extraer de forma automatizada las partículas e identificar patrones en sus características geométricas y de apariencia que puedan permitir la clasificación de las partículas en dichas imágenes. El resultado obtenido debe mostrarse por medio las métricas mostradas en el cuaderno, incluyendo la matriz de confusión, donde se comparan las anotaciones con las predicciones.
+En esta tarea, hemos tenido como base de la clasificación, tres imágenes, que se corresponden con las siguientes. 
 
-![Confusión](MatrizConfu.png)  
-*Ejemplo de matriz de confusión*
+![Fragmentos de plásticos](fragment-03-olympus-10-01-2020.JPG)
+![Pellets](pellet-03-olympus-10-01-2020.JPG)
+![Alquitrán](tar-03-olympus-10-01-2020.JPG)
 
-A la hora de considerar posibles características geométricas, como punto de partida para la extracción de descriptores de las partículas, se proporciona enlace al trabajo [SMACC: A System for Microplastics Automatic Counting and Classification](https://doi.org/10.1109/ACCESS.2020.2970498) en el que se adoptan algunas propiedades geométricas para dicho fin. De forma resumida, las características geométricas utilizadas en dicho trabajo fueron:
+Para comenzar con esta parte, hemos hecho un recorte de las imágenes con el fin de abarcar y analizar sólo el ROI (Región de Interés), y evitar complicaciones con las sombras que presentan las imágenes en la esquina inferior derecha. Luego de esto, hemos aplicado suavizado con la función de OpenCV **_GaussianBlur()_**, con diferentes máscaras. La más grande, para la imagen de fragmentos plásticos, con el fin de garantizar la no detección de ruido en el umbralizado, ya que detecta bordes muy finos que nos dificulta la labor a la hora de contar y clasificar el número de partículas. Para las otras dos restantes hemos aplicado un suavizado menor, ya que la imagen tienen menor dificultad en cuanto la detección de las formas de las partículas (pellets y alquitrán).
 
-- Área en píxeles (A)
-- Perímetro en píxeles (P)
-- Compacidad (relación del cuadrado del perímetro con el área C=P^2/A)
-- Relación del área de la partícula con el área del contenedor que la contiene
-- Relación del ancho y el alto del contenedor
-- Relación entre los ejes de la elipse ajustada
-- Definido el centroide, relación entre las distancias menor y mayor al contorno
+En segundo lugar, usamos las imágenes suavizadas para la umbralización binaria de las mismas con la función **_threshold()_** que, tras un proceso de prueba y error de los diferentes parámetros de umbral, hemos conseguido las tres imágenes de las partículas con un ruido controlado, sobretodo y más crítico, en la imagen de los fragmentos plásticos. Como podemos observar, mostramos el resultado invertido, es decir, fondo negro con las partículas detectadas en blanco.
 
-En relación a la segmentación de las partículas, una probable primera observación es que la aplicación del umbralizado para separarlas del fondo, es delicada. Preprocesamiento como suavizar la imagen de entrada o reducir su tamaño, o aplicar heurísticas basadas en el tamaño mínimo y máximo de los contornos localizados, y la distancia mínima entre ellos, pueden ayudar a filtrar falsas detecciones, pero a pesar de ello, será un desafío obtener una separación perfecta para todas las imágenes con la misma estrategia. Añadir, que la imagen de fragmentos contiene unas 80 partículas, la de *pellets* unas 55 y la de alquitrán unas 54.
-
-![Contornos](Output.jpg)  
-*Ejemplo ilustrativo contornos detectados en la imagen de fragmentos*
-
-Si quieren ir más allá, sugerir explorar técnicas de segmentación recientes y potentes como [Segment anything o SAM](https://segment-anything.com) o [OneFormer](https://github.com/SHI-Labs/OneFormer), y extensiones como , [SAM 2](https://github.com/facebookresearch/segment-anything-2), [FastSAM](https://github.com/CASIA-IVA-Lab/FastSAM) o [Count anything](https://github.com/ylqi/Count-Anything). No duden en compartir otras alternativas que descubran.
-
-La entrega se realizará a través del campus virtual, remitiendo un enlace a **github**, donde se alojará el **cuaderno o cuadernos** de resolución de las tareas, además de un **README** describiendo el proceso adoptado para resolver cada tarea, integrando de imágenes ilustrativas, además de las métricas obtenidas y matriz de confusión de la segunda tarea.
-
-<!---Momentos en trabajo de Nayar sobre Binary images https://cave.cs.columbia.edu/Statics/monographs/Binary%20Images%20FPCV-1-3.pdf -->
+![Umbralizado de las partículas](umbralizado_particulas-1.png)
+_Umbralizado de las tres imágenes de partículas._
 
 
-***
-Bajo licencia de Creative Commons Reconocimiento - No Comercial 4.0 Internacional
+A continuación, creamos la función **_contar_particulas()_**, cuya función es, como bien describe su propio nombre, el conteo de partículas de una imagen dada. Para esto, apoyándonos en la función findContours(), obtenemos el número de contornos cerrados encontrados en la imágen, es decir, que devuelve un set del número de partículas detectadas. Recorreremos esta lista para analizar cada una de las partículas y aplicar las heurísticas necesarias para su clasificación.
+
+En primer lugar, usaremos la función **_boundingRect()_**, que dibuja un rectángulo conteniendo la partícula, que usaremos para ver cuán cuadrado es el perímetro que la contiene. Así podemos determinar su circularidad ayudádonos de **_isclose()_** de NumPy, cuyos parámetros serán 1 (relación ancho-alto perfecta, lo que conlleva a circularidad de la partícula) en cuanto a cercanía de valor, y una tolerancia de 1. 
+
+En segundo lugar, calcularemos el área y el perímetro de los contornos detectados con **_boundingRect()_** y **_arcLength()_**, respectivamente. Estos parámetros nos ayudarán a calcular la circularidad de la partícula (en diferente forma que como se explica en el párrafo anterior) y la relación del área respecto al ancho y alto del rectángulo que contiene el fragmento detectado. Además, también nos ayudará a calcula la compacidad, que se traduce como la relación del cuadrado del perímetro respecto al área. 
+
+En tercer lugar, contendremos también las partículas con una elipse, haciendo uso de **_fitEllipse()_**, y obtendremos también parámetros que nos ayudarán a la clasificación por estructura o forma de las mismas, como la relación entre ejes X e Y de la propia elipse.
+
+Todos estos parámetros se contendrán en listas que nos servirán para clasificar los fragmentos encontrados de cada una de las imágenes. Para la clasificación de los tipos de partículas dependiendo de su forma es la siguiente:
+- Primero, si su compacidad es cero (area=0 ó perímetro=0), descartamos la partícula o contorno, ya que se tratará, en la mayoría de los casos, de una falsa detección por ruido en la imagen umbralizada. 
+- Si su compacidad es menos de 15 y tiene una buena circularidad (tanto con la función isclose() como con la circularidad calculada como _circularidad = 4 * np.pi * (area / (perimetro ** 2))_), la consideramos como pellet, por su parecido a la forma vista en estas partículas, que tienen a tener forma redonda.
+- Si la relación del área con el ancho y alto del contenedor es menor o igua que 0.65 y la relación entre elipses es de 0.78, contamos la partícula como fragmento plástico, debido a sus formas poligonales.
+- Si no se da ninguno de estos dos casos, consideramos que es alquitrán, ya que presentan las formas más irregulares e impredecibles debido a su naturaleza. 
+
+Para finalizar, realizaremos la matriz de confusión, cuyas diagonales representan los verdaderos positivos y, el resto, falsos positivos, que variarán dependiendo de la precisión de los cálculos explicados con anterioridad.
+
+![Matriz de convolución](<matriz convolucion-1.png>)
+Resultados de nuestra matriz de convolución.
+
+Vemos como encontramos un mayor _match_ de las formas en los fragmentos y los pellets, desviándose más del resultado idóneo en el alquitrán.
