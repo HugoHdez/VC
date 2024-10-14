@@ -15,7 +15,7 @@ Para comenzar con esta parte, hemos hecho un recorte de las imágenes con el fin
 
 En segundo lugar, usamos las imágenes suavizadas para la umbralización binaria de las mismas con la función **_threshold()_** que, tras un proceso de prueba y error de los diferentes parámetros de umbral, hemos conseguido las tres imágenes de las partículas con un ruido controlado, sobretodo y más crítico, en la imagen de los fragmentos plásticos. Como podemos observar, mostramos el resultado invertido, es decir, fondo negro con las partículas detectadas en blanco.
 
-![Umbralizado de las partículas](umbralizado_particulas-1.png)
+![Umbralizado de las partículas](umbralizado_particulas.png)
 _Umbralizado de las tres imágenes de partículas._
 
 
@@ -35,7 +35,7 @@ Todos estos parámetros se contendrán en listas que nos servirán para clasific
 
 Para finalizar, realizaremos la matriz de confusión, cuyas diagonales representan los verdaderos positivos y, el resto, falsos positivos, que variarán dependiendo de la precisión de los cálculos explicados con anterioridad.
 
-![Matriz de convolución](<matriz convolucion-1.png>)
-Resultados de nuestra matriz de convolución.
+![Matriz de convolución](<matriz convolucion.png>)  
+_Resultados de nuestra matriz de convolución._
 
 Vemos como encontramos un mayor _match_ de las formas en los fragmentos y los pellets, desviándose más del resultado idóneo en el alquitrán.
