@@ -35,7 +35,7 @@ Todos estos parámetros se contendrán en listas que nos servirán para clasific
 
 Para finalizar, realizaremos la matriz de confusión, cuyas diagonales representan los verdaderos positivos y, el resto, falsos positivos, que variarán dependiendo de la precisión de los cálculos explicados con anterioridad.
 
-![Matriz de convolución](matriz convolucion.png)
+![Matriz de convolución](<matriz convolucion.png>)  
 _Resultados de nuestra matriz de convolución._
 
 Vemos como encontramos un mayor _match_ de las formas en los fragmentos y los pellets, desviándose más del resultado idóneo en el alquitrán.
