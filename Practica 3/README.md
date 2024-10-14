@@ -10,13 +10,13 @@ En esta tarea, hemos capturado la siguiente imagen para la detección de monedas
 ![Monedas capturadas](Monedas_prueba.jpg)
 _Monedas capturadas en el aula de prácticas_
 
-En primer lugar, para poder diferencias las características de cada monedas, será necesario obtener diferentes parámetros sobre las mismas, como son su diámetro. Además almacenamos su valor para proceder con la suma de las monedas detectadas en el programa interactivo realizado, que se explicará con posterioridad.
+En primer lugar, para poder diferenciar las características de cada moneda, es necesario obtener diferentes parámetros sobre las mismas, como es su diámetro. Además, almacenamos su valor para proceder con la suma de las monedas detectadas en el programa interactivo realizado, que se explicará con posterioridad.
 
-A continuación, cargamos la imagen y aplicaremos suavizados mediante las funciones **_medianBlur()_**, que usaremos en la detección de circulos mediante la transformada de Hough y **_GaussianBlur()_** para la detección de bordes con **_Canny()_**. Para transformada de Hough emplearemos la función **_HoughCircles()_** de OpenCV.
+A continuación, cargamos la imagen y aplicaremos suavizados mediante las funciones **_medianBlur()_**, que usaremos en la detección de círculos mediante la transformada de Hough y **_GaussianBlur()_** para la detección de bordes con **_Canny()_**. Para transformada de Hough emplearemos la función **_HoughCircles()_** de OpenCV.
 
-Procesamos los circulos detectados en la imagen, en la que dibujaremos esta detección en color verde de la banda RGB y almacenaremos sus características (posición en coordenadas y radio).
+Procesamos los circulos detectados en la imagen, en la que dibujamos la misma detección en color verde y almacenaremos sus características (posición en coordenadas y radio).
 
-Luego, creamos la función **seleccion_moneda()**, que identificará la moneda correspondiente en función de las coordenadas en que hagamos click de la imagen de las mismas. Asumimos que la primera moneda que se toma de referencia es la de un euro, y a partir de ahí, establecemos la escala píxel/mm (con las dimensiones de la misma) y calculamos el valor de las monedas clickadas en función de su dimesión en escala.
+Luego, creamos la función **seleccion_moneda()**, que identifica la moneda correspondiente en función de las coordenadas en que hagamos click de la imagen de las mismas. Asumimos que la primera moneda que se toma de referencia es la de un euro, y a partir de ahí, establecemos la escala píxel/mm (con las dimensiones de la misma) y calculamos el valor de las monedas clickadas en función de su dimesión en escala.
 
 Para esto último, con la función **asignar_valor()**, nos encargamos de, como su nombre indica, asignar el valor a la moneda dependiendo de su diametro en milímetros, con una tolerancia de ±2mm. Para finalizar, calcularemos el valor de las monedas detectadas en la imagen, accediendo al valor del diccionario y sumando el total.
 
