@@ -14,11 +14,17 @@ En primer lugar, para poder diferenciar las características de cada moneda, es 
 
 A continuación, cargamos la imagen y aplicaremos suavizados mediante las funciones **_medianBlur()_**, que usaremos en la detección de círculos mediante la transformada de Hough y **_GaussianBlur()_** para la detección de bordes con **_Canny()_**. Para transformada de Hough emplearemos la función **_HoughCircles()_** de OpenCV.
 
+![relleno](https://github.com/user-attachments/assets/f1c6dea4-352d-494e-83ab-dc40c2bf72d2)
+
 Procesamos los circulos detectados en la imagen, en la que dibujamos la misma detección en color verde y almacenaremos sus características (posición en coordenadas y radio).
+
+![ejecucion](https://github.com/user-attachments/assets/fd83e2b4-08a5-46e6-9774-1511fa598b79)
 
 Luego, creamos la función **seleccion_moneda()**, que identifica la moneda correspondiente en función de las coordenadas en que hagamos click de la imagen de las mismas. Asumimos que la primera moneda que se toma de referencia es la de un euro, y a partir de ahí, establecemos la escala píxel/mm (con las dimensiones de la misma) y calculamos el valor de las monedas clickadas en función de su dimesión en escala.
 
 Para esto último, con la función **asignar_valor()**, nos encargamos de, como su nombre indica, asignar el valor a la moneda dependiendo de su diametro en milímetros, con una tolerancia de ±2mm. Para finalizar, calcularemos el valor de las monedas detectadas en la imagen, accediendo al valor del diccionario y sumando el total.
+
+![resultados](https://github.com/user-attachments/assets/a1ae0685-212d-4e56-9305-f5d5c62ddcc5)
 
 
 ## **Tarea 2:** Desarrollo de clasificador basado en heurísticas geométricas y de apariencia de diferentes tipos de partículas.
