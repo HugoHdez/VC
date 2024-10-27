@@ -10,15 +10,21 @@ En esta tarea, hemos capturado la siguiente imagen para la detección de monedas
 ![Monedas capturadas](Monedas_prueba.jpg)
 _Monedas capturadas en el aula de prácticas_
 
-En primer lugar, para poder diferencias las características de cada monedas, será necesario obtener diferentes parámetros sobre las mismas, como son su diámetro. Además almacenamos su valor para proceder con la suma de las monedas detectadas en el programa interactivo realizado, que se explicará con posterioridad.
+En primer lugar, para poder diferenciar las características de cada moneda, es necesario obtener diferentes parámetros sobre las mismas, como es su diámetro. Además, almacenamos su valor para proceder con la suma de las monedas detectadas en el programa interactivo realizado, que se explicará con posterioridad.
 
-A continuación, cargamos la imagen y aplicaremos suavizados mediante las funciones **_medianBlur()_**, que usaremos en la detección de circulos mediante la transformada de Hough y **_GaussianBlur()_** para la detección de bordes con **_Canny()_**. Para transformada de Hough emplearemos la función **_HoughCircles()_** de OpenCV.
+A continuación, cargamos la imagen y aplicaremos suavizados mediante las funciones **_medianBlur()_**, que usaremos en la detección de círculos mediante la transformada de Hough y **_GaussianBlur()_** para la detección de bordes con **_Canny()_**. Para transformada de Hough emplearemos la función **_HoughCircles()_** de OpenCV.
 
-Procesamos los circulos detectados en la imagen, en la que dibujaremos esta detección en color verde de la banda RGB y almacenaremos sus características (posición en coordenadas y radio).
+![relleno](https://github.com/user-attachments/assets/f1c6dea4-352d-494e-83ab-dc40c2bf72d2)
 
-Luego, creamos la función **seleccion_moneda()**, que identificará la moneda correspondiente en función de las coordenadas en que hagamos click de la imagen de las mismas. Asumimos que la primera moneda que se toma de referencia es la de un euro, y a partir de ahí, establecemos la escala píxel/mm (con las dimensiones de la misma) y calculamos el valor de las monedas clickadas en función de su dimesión en escala.
+Procesamos los circulos detectados en la imagen, en la que dibujamos la misma detección en color verde y almacenaremos sus características (posición en coordenadas y radio).
+
+![ejecucion](https://github.com/user-attachments/assets/fd83e2b4-08a5-46e6-9774-1511fa598b79)
+
+Luego, creamos la función **seleccion_moneda()**, que identifica la moneda correspondiente en función de las coordenadas en que hagamos click de la imagen de las mismas. Asumimos que la primera moneda que se toma de referencia es la de un euro, y a partir de ahí, establecemos la escala píxel/mm (con las dimensiones de la misma) y calculamos el valor de las monedas clickadas en función de su dimesión en escala.
 
 Para esto último, con la función **asignar_valor()**, nos encargamos de, como su nombre indica, asignar el valor a la moneda dependiendo de su diametro en milímetros, con una tolerancia de ±2mm. Para finalizar, calcularemos el valor de las monedas detectadas en la imagen, accediendo al valor del diccionario y sumando el total.
+
+![resultados](https://github.com/user-attachments/assets/a1ae0685-212d-4e56-9305-f5d5c62ddcc5)
 
 
 ## **Tarea 2:** Desarrollo de clasificador basado en heurísticas geométricas y de apariencia de diferentes tipos de partículas.
@@ -47,7 +53,7 @@ En tercer lugar, contendremos también las partículas con una elipse, haciendo 
 
 Todos estos parámetros se contendrán en listas que nos servirán para clasificar los fragmentos encontrados de cada una de las imágenes. Para la clasificación de los tipos de partículas dependiendo de su forma es la siguiente:
 - Primero, si su compacidad es cero (area=0 ó perímetro=0), descartamos la partícula o contorno, ya que se tratará, en la mayoría de los casos, de una falsa detección por ruido en la imagen umbralizada. 
-- Si su compacidad es menos de 15 y tiene una buena circularidad (tanto con la función isclose() como con la circularidad calculada como _circularidad = 4 * np.pi * (area / (perimetro ** 2))_), la consideramos como pellet, por su parecido a la forma vista en estas partículas, que tienen a tener forma redonda.
+- Si su compacidad es menos de 15 y tiene una buena circularidad (tanto con la función isclose() como con la circularidad calculada como _circularidad = 4 * np.pi * (area / (perimetro ** 2))_), la consideramos como pellet, por su parecido a la forma vista en estas partículas, que tienden a tener forma redonda.
 - Si la relación del área con el ancho y alto del contenedor es menor o igua que 0.65 y la relación entre elipses es de 0.78, contamos la partícula como fragmento plástico, debido a sus formas poligonales.
 - Si no se da ninguno de estos dos casos, consideramos que es alquitrán, ya que presentan las formas más irregulares e impredecibles debido a su naturaleza. 
 
