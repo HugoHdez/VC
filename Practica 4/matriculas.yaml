@@ -1,0 +1,6 @@
+path: F:\\Universidad\\Curso 2024-25\\Primer Semestre\\VC\\Practicas\\VC\\Practica 4\\TGC_RBNW
+train: F:\\Universidad\\Curso 2024-25\\Primer Semestre\\VC\\Practicas\\VC\\Practica 4\\TGC_RBNW\\train\\images
+val: F:\\Universidad\\Curso 2024-25\\Primer Semestre\\VC\\Practicas\\VC\\Practica 4\\TGC_RBNW\\val\\images
+test: F:\\Universidad\\Curso 2024-25\\Primer Semestre\\VC\\Practicas\\VC\\Practica 4\\TGC_RBNW\\test\\images
+nc: 1
+names: ['matriculas']
