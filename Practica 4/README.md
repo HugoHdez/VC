@@ -21,11 +21,13 @@ Lo siguiente que hacemos es entrenar el modelo con el archivo yaml que hace refe
 
 Este código procesa un video para detectar personas, vehículos y matrículas, combinando los modelos de detección comentados anteriormente con el OCR (reconocedor de texto) para identificar el texto de las matrículas. Utiliza la biblioteca OpenCV para la manipulación de video y pytesseract para el reconocimiento de texto en imágenes.
 
-Primero definimos dos funciones auxiliares, draw_rectangle(), que dibuja un rectángulo en torno al objeto detectado y añade una etiqueta con la clase del objeto detectado, y is_valid_plate(), que valida si el texto detectado en una región cumple con el formato de matrícula española, no obstante al no obtener un resultado aceptable mediante el formato de matrícula, aceptamos el formato de que contenga letras y números.
+Primero definimos dos funciones auxiliares, *draw_rectangle()*, que dibuja un rectángulo en torno al objeto detectado y añade una etiqueta con la clase del mismo, y *is_valid_plate()*, que valida si el texto detectado en la matrícula (se explicará como posteriormente), mediante el uso de expresiones regulares con *RegEx*, cumple con el formato de matrícula española. No obstante, al no obtener un resultado aceptable ya que la gran mayoría de resultados se descartaban por una detección incorrecta, aceptamos cualquier combinación de que contenga letras, números y espacios en blanco.
 
 Para la detección, hacemos un bucle en el que vaya haciendo la deteccion de yolo11n en cada frame y cuando encuentre un objeto que sea un vehículo, recortamos ese vehículo para usar esa región de interés (ROI) y le haga su respectiva detección de matrícula. Las características de cada detección se van guardando un archivo CSV, como el tipo de objeto, la confianza, las coordenadas y el texto de la matrícula, si es aplicable.
 
-Por su parte, si se identifica una matrícula en la ROI, se aplica un procesamiento adicional para mejorar la calidad de la imagen, convirtiéndola a escala de grises y aplicando un filtro adaptativo que facilita el reconocimiento del texto con pytesseract. Luego, se extrae el texto de la matrícula y se verifica si cumple con el formato de matrícula. 
+Por su parte, si se identifica una matrícula en la ROI, y se aplica un preprocesamiento para mejorar la calidad de la imagen, convirtiéndola a escala de grises y aplicando un umbralizado adaptativo que facilita el reconocimiento del texto con *pytesseract*. Luego, se extrae el texto de la matrícula y se verifica si cumple con el formato de matrícula con la función *is_valid()*, mencionada con anterioridad. Además, mostramos la imagen de las matrículas con su procesamiento en la ejecución. Un ejemplo de cómo se pasa la imagen de la matrícula al OCR lo podemos observar en la siguiente imagen:
+
+![alt text](salida_matricula_ejecucion.png)
 
 Después se dibujan sobre el video los resultados de las deteccionese, destacando cada detección con un rectángulo de un color específico.
 
