@@ -33,7 +33,18 @@ Por último, el video procesado y los datos de detección en formato CSV se guar
 
 
 
+![video prueba](https://github.com/user-attachments/assets/4815e453-9dd0-4d5f-acb4-55153dc9daeb)
 
 
+![prueba2](https://github.com/user-attachments/assets/f324514f-f80d-43fa-ac03-bf11161c5159)
+
+
+Enlaces a los videos de entrada y salida:
+
+Entrada:
+https://alumnosulpgc-my.sharepoint.com/personal/hugo_hernandez103_alu_ulpgc_es/_layouts/15/stream.aspx?id=%2Fpersonal%2Fhugo%5Fhernandez103%5Falu%5Fulpgc%5Fes%2FDocuments%2FVC%5FP4%2Fvideo%5Fentrada%5Fcrop%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Efeddd6be%2D15b8%2D4744%2D9415%2Dc57d7f519de6
+
+Salida:
+https://alumnosulpgc-my.sharepoint.com/personal/hugo_hernandez103_alu_ulpgc_es/_layouts/15/stream.aspx?id=%2Fpersonal%2Fhugo%5Fhernandez103%5Falu%5Fulpgc%5Fes%2FDocuments%2FVC%5FP4%2Fvideo%5Fsalida%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E7c52ffab%2D0e53%2D49da%2D91d1%2D2d6d4d8e63c0&mode=Edit
 
 
