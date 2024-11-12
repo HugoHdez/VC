@@ -5,11 +5,6 @@
 [Aspectos cubiertos](#51-aspectos-cubiertos)
 [Conjunto de datos](#conjunto-de-datos)  
 [Análisis facial](#análisis-facial)  
-[Tarea](#tarea)
-
-[video](https://github.com/HugoHdez/VC/blob/main/Practica%205/output_video.mp4)
-
-![output_video (1)](https://github.com/user-attachments/assets/d4a4a0fe-e3f4-49ac-acac-a7bc4748cae8)
 
 ![output_video (2)](https://github.com/user-attachments/assets/48fa5751-448d-4784-ab54-590e32a7d463)
 
