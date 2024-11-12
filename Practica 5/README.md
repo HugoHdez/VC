@@ -11,6 +11,8 @@
 
 ![output_video (1)](https://github.com/user-attachments/assets/d4a4a0fe-e3f4-49ac-acac-a7bc4748cae8)
 
+![output_video (2)](https://github.com/user-attachments/assets/48fa5751-448d-4784-ab54-590e32a7d463)
+
 
 ### Detección de caras
 
