@@ -8,6 +8,10 @@
 [Tarea](#tarea)
 
 
+
+https://github.com/user-attachments/assets/78ca2b0d-f38a-451c-bc94-465741fa9a02
+
+
 ### Detección de caras
 
 Para esta práctica he preparado varios demostradores de detectores faciales. El primero de ellos, [*VC_P5_detectores.ipynb*](VC_P5_detectores.ipynb), integra cuatro variantes que buscan el rostro mayor de la imagen intentando localizar sus ojos para aplicar en su caso una normalización de tamaño y orientación:
