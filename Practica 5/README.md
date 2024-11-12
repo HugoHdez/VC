@@ -7,9 +7,8 @@
 [Análisis facial](#análisis-facial)  
 [Tarea](#tarea)
 
+[video](https://github.com/HugoHdez/VC/blob/main/Practica%205/output_video.mp4)
 
-
-https://github.com/user-attachments/assets/78ca2b0d-f38a-451c-bc94-465741fa9a02
 
 
 ### Detección de caras
