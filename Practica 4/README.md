@@ -4,6 +4,8 @@ Estas tareas han sido realizadas de manera conjunta por ambos miembros del grupo
 
 En esta práctica se aborda el uso de modelos existentes para la detección de objetos y reconocimiento de texto. Para ello usamos el modelo yolo11n ya entrenado para la detección de objetos, unicamente tomando las clase persona y algunos vehiculos con matrículas (coches, motos, guaguas). Además usamos un modelo que entrenamos para que detecte matrículas y tambien un reconocedor de texto, el tesseract.
 
+El dataset que hemos utilizado para el entreno del modelo es el siguiente: [kaggle dataset](https://www.kaggle.com/datasets/andrewmvd/car-plate-detection)
+
 ## **Paso 1:** Entrenar un modelo para que detecte matrículas.
 
 En este paso, hemos buscado un dataset ya completado de imagenes con matrículas y sus respectivos labels (que indican donde estan las matrículas). Además hemos implementado un script para seleccionar aleatoriamente las muestras que formarán parte del test, del entrenamiento y de la validación, que serán 20%, 72% y 8% del total respectivamente. En dicho script, borramos los directorios si hay creados (por si se quiere volver a mezclar la muestra), a continuación, creamos los directorios de imagenes y labels separadas en las tres etapatas y tras obtener las imagenes y el tamaño de cada subconjunto se añaden las imagenes en sus respectivas carpetas. Finalmente, hacemos lo mismo con las labels pero convirtiendo los xml (que es como venían en el dataset) a archivos de texto con formato YOLO, esto lo hacemos cogiendo la informacion del archivo xml que necesitemos:"width", "height", "xmin", "xmax", "ymin", "ymax".
